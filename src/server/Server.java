@@ -14,6 +14,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Server {
     
@@ -35,7 +37,6 @@ public class Server {
                 ServerThread s = new ServerThread(clientSocket);
                 s.run();
                 clientsThreads.add(s);
-                //clientsThreads.add(new ServerThread(clientSocket));
             } catch(Exception e) {
                 System.err.println("Connection error 1");
                 e.printStackTrace();
@@ -83,6 +84,19 @@ public class Server {
             }
             
             System.out.println("User name: " + username);
-        }        
+        }  
+        
+        private void broadcastMessage() {
+            String message = null;
+            try {
+                while((message = input.readLine()) != null) {
+                    for(PrintWriter out : clientOutputs.values()) {
+                        
+                    }
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }
