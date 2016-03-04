@@ -44,14 +44,14 @@ public class Client {
                 System.out.println(response);
             }
             
-            /*message = br.readLine();
+            message = br.readLine();
             while(message.compareTo("!QUIT") != 0) {
                 out.println(message);
                 out.flush();
                 response = in.readLine();
-                System.out.println("Server response: " + response);
+                System.out.println(response);
                 message = br.readLine();
-            }*/
+            }
         } catch(IOException e) {
             System.err.println("Reading error");
         } finally {

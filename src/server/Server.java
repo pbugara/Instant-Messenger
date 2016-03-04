@@ -27,7 +27,7 @@ public class Server {
     public Server(int portNumber) throws IOException {
         this.serverSocket = new ServerSocket(portNumber);  
         clientsThreads = new ArrayList<>();
-        clientOutputs = new HashMap<String, PrintWriter>();
+        clientOutputs = new HashMap<>();
     }
     
     public void runServer() {
@@ -91,7 +91,7 @@ public class Server {
             try {
                 while((message = input.readLine()) != null) {
                     for(PrintWriter out : clientOutputs.values()) {
-                        
+                        out.println("[" + username + "] " + message);
                     }
                 }
             } catch (IOException ex) {
